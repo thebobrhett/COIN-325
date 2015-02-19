@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab07;
+package Lab07;
 
 import javax.swing.*;
 import org.junit.After;

@@ -8,7 +8,7 @@ package lab07;
 import javax.swing.JFrame;
 
 /**
-* Bob Rhett - Tuesday, February 17, 2015
+ * Bob Rhett - Tuesday, February 17, 2015
  *   COIN-325-40 Lab 7
  *   Program to display a random number.
  *   Initial release
