@@ -66,24 +66,24 @@ public class IntegerCountTester {
         iCnt.putIntegers(strTest);
         System.out.println("Test 3 output:");
         System.out.println(iCnt.getIntegers());
-        assertTrue(iCnt.getIntegers().equals("1: 2\n0: 3\n"));
+        assertTrue(iCnt.getIntegers().equals("0: 3\n1: 2\n"));
     }
 
 @Test
     public void IntegerCountTest4() {
-        String strTest = "1 5 -4 101 5";
+        String strTest = "0 5 -4 101 5";
         System.out.println("Test 4 input:");
         System.out.println(strTest);
         IntegerCount iCnt = new IntegerCount();
         iCnt.putIntegers(strTest);
         System.out.println("Test 4 output:");
         System.out.println(iCnt.getIntegers());
-        assertTrue(iCnt.getIntegers().equals("1: 1\n5: 2\n"));
+        assertTrue(iCnt.getIntegers().equals("0: 1\n5: 2\n"));
     }
 
     @Test
     public void IntegerCountTest5() {
-        String strTest = "0 0 0 99 99 1024 1024 1024";
+        String strTest = "0 0 0 99 99 1024 1024 -1024";
         System.out.println("Test 5 input:");
         System.out.println(strTest);
         IntegerCount iCnt = new IntegerCount();
@@ -95,13 +95,13 @@ public class IntegerCountTester {
 
     @Test
     public void IntegerCountTest6() {
-        String strTest = "1024 1024 1024 99 99 0 0 0";
+        String strTest = "1024 -1024 -1024 99 99 0 0 0";
         System.out.println("Test 6 input:");
         System.out.println(strTest);
         IntegerCount iCnt = new IntegerCount();
         iCnt.putIntegers(strTest);
         System.out.println("Test 6 output:");
         System.out.println(iCnt.getIntegers());
-        assertTrue(iCnt.getIntegers().equals("99: 2\n0: 3\n"));
+        assertTrue(iCnt.getIntegers().equals("0: 3\n99: 2\n"));
     }
 }
