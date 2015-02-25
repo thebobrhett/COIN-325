@@ -29,9 +29,6 @@ public class IntegerCount {
             intList[i] = Integer.parseInt(strList[i]);
         }
 
-        boolean found = false;
-        int nextFound = 0;
- 
         for (int i = 0; i < intList.length; i++) {
             for (int j = 0; j < intCount.length; j++) {
                 if (intList[i] == intCount[j][0]) {    //if the number matches
