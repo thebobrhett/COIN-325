@@ -21,7 +21,11 @@ public class PushRandomPanel extends JPanel {
     private int mResult;
     public JButton mPush;
     public JLabel mLabel;
-    
+    public JTextField mText;
+    public JPasswordField mPass;
+    public JCheckBox mCheck;
+    public J mLink;
+        
     //****************
     // Constructor: Sets up the GUI
     //****************
@@ -32,9 +36,15 @@ public class PushRandomPanel extends JPanel {
         mPush.addActionListener(new ButtonListener());
         
         mLabel = new JLabel();
-                
+        mText = new JTextField("Username");
+        mPass = new JPasswordField("Password");
+        mCheck = new JCheckBox();
+        
         this.add(mPush);
         this.add(mLabel);
+        this.add(mText);
+        this.add(mPass);
+        this.add(mCheck);
         
         this.setBackground(Color.lightGray);
         this.setPreferredSize(new Dimension(300, 100));
