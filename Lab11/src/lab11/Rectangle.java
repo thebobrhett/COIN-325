@@ -3,30 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lab11;
+package lab11;
 
 /* Bob Rhett - Wednesday, March 18, 2015
- * Represents a right triangle.
+ * Represents a rectangle.
  * Subclass of Shape2D to demonstrate inheritance.
  */
-public class RightTriangle extends Shape2D {
+public class Rectangle extends Shape2D {
     private double width;
     private double height;
-    private double hypotenuse;
     
     //Constructor
-    public RightTriangle(double mWidth, double mHeight) {
-        super(3);
+    public Rectangle(double mWidth, double mHeight) {
+        super(4);
         width = mWidth;
         height = mHeight;
-        hypotenuse = Math.sqrt((Math.pow(width, 2)) + Math.pow(height, 2));
     }
 
     public double getArea() {
-        return super.getArea(width, height, hypotenuse);
+        return super.getArea(width, height);
     }
 
     public double getCircumference() {
-        return super.getCircumference(width, height, hypotenuse);
+        return super.getCircumference(width, height);
     }
 }

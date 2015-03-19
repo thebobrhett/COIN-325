@@ -3,28 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lab11;
+package lab11;
 
 /* Bob Rhett - Wednesday, March 18, 2015
- * Represents a rectangle.
+ * Represents a circle.
  * Subclass of Shape2D to demonstrate inheritance.
  */
-public class Rectangle extends Shape2D {
-    private double width;
-    private double height;
+public class Circle extends Shape2D {
+    private double radius;
     
     //Constructor
-    public Rectangle(double mWidth, double mHeight) {
-        super(4);
-        width = mWidth;
-        height = mHeight;
+    public Circle(double mRadius) {
+        super(0);
+        radius = mRadius;
     }
 
     public double getArea() {
-        return super.getArea(width, height);
+        return super.getArea(radius);
     }
 
     public double getCircumference() {
-        return super.getCircumference(width, height);
+        return super.getCircumference(radius);
     }
+
 }

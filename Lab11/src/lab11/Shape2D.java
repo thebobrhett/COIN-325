@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lab11;
+package lab11;
 
 /* Bob Rhett - Wednesday, March 18, 2015
  * Represents a 2 dimensional shape.
