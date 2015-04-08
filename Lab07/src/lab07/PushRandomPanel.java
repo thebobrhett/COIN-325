@@ -24,7 +24,7 @@ public class PushRandomPanel extends JPanel {
     public JTextField mText;
     public JPasswordField mPass;
     public JCheckBox mCheck;
-    public J mLink;
+    //public JLink mLink;
         
     //****************
     // Constructor: Sets up the GUI
