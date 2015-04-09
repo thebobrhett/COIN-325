@@ -20,7 +20,11 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public void push(T element) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LinkedNode newNode = new LinkedNode();
+        newNode.setElement(element);
+        newNode.setNext(top);
+        top = newNode;
+        count++;
     }
 
     @Override
@@ -38,17 +42,34 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public T peek() throws EmptyCollectionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if ( top == null ) {
+            throw new EmptyCollectionException();
+        }
+        
+        return top.getElement();
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return count == 0;
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return count;
+    }
+    
+    @Override
+    public String toString() {
+        String result = "<top of stack>\n";
+        LinkedNode current = top;
+        
+        while (current != null) {
+            result += current.getElement() + "\n";
+            current = current.getNext();
+        }
+        
+        return result + "<bottom of stack>";
     }
     
 }

@@ -45,7 +45,6 @@ public class StackTester {
     //
     @Test
     public void StackTest() {
-        Scanner scan = new Scanner(System.in);
         ArrayStack mStack = new ArrayStack();
 
         //stack should have the default capacity
@@ -108,5 +107,24 @@ public class StackTester {
         assertTrue(mStack.isEmpty());
         //Stack should have 0 elements
         assertTrue(mStack.size() == 0);
+    }
+
+    @Test
+    public void EmptyStackTest() {
+        ArrayStack mStack = new ArrayStack();
+
+        //Stack should be empty
+        try {
+            assertTrue(mStack.peek().equals("Element2"));
+        } catch (EmptyCollectionException exception) {
+            System.out.println("The stack is empty");
+        }
+
+        try {
+            assertTrue(mStack.pop().equals("Element11"));
+        } catch (EmptyCollectionException exception) {
+            System.out.println("The stack is empty");
+        }
+
     }
 }
