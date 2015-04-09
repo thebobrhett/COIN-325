@@ -106,6 +106,7 @@ public class LoginPanel extends JPanel {
                     try {
                         writer = new PrintWriter("cookie.txt", "UTF-8");
                         writer.println(mUsername.getText());
+                        //encrypt the password
                         writer.println(new String(mPassword.getPassword()));
                         writer.flush();
                         writer.close();
@@ -116,7 +117,6 @@ public class LoginPanel extends JPanel {
                     }
                 } else {
                     try {
-                        System.out.println("Trying to delete cookie");
                         File cookie = new File("cookie.txt");
                         cookie.setWritable(true);
                         cookie.delete();
@@ -137,17 +137,24 @@ public class LoginPanel extends JPanel {
         // when the Change Password button is pushed
         @Override
         public void actionPerformed(ActionEvent event) {
-            System.out.println("Set Password");
-            
+            JFrame frame = new JFrame("Reset Password");
+            frame.add(new SetPasswordPanel());
+
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
         }
     }
     private class GetPasswordListener implements ActionListener {
         // when the Forgot Password button is pushed
         @Override
         public void actionPerformed(ActionEvent event) {
-            System.out.println("Get Password");
-            
-        }
+            JFrame frame = new JFrame("Get Password");
+            frame.add(new GetPasswordPanel());
+
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);        }
     }
     private class AddAccountListener implements ActionListener {
         // when the Create New Account button is pushed

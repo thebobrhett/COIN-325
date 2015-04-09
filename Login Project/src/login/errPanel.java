@@ -20,7 +20,7 @@ public class errPanel extends JPanel {
         JButton doneButton = new JButton("Done");
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setBackground(Color.lightGray);
-        this.setPreferredSize(new Dimension(300, 225));
+        this.setPreferredSize(new Dimension(300, 100));
         this.add(errLabel);
         this.add(doneButton);
         doneButton.addActionListener(new doneListener());

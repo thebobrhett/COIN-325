@@ -39,7 +39,7 @@ public class Account {
         }
         if (username.equals("")) {
             //Error - no username
-            errMessage = "The Email address is required";
+            errMessage = "An Email address is required";
         } else {
             //be sure it has the form of a real email address
         }
@@ -67,6 +67,124 @@ public class Account {
                 stmt.execute(qryStr);
                 conn.close();
                 Success successPanel = new Success("The account was created");
+            } catch(SQLException ex) {
+                //handle an existing account here
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("qryStr: " + qryStr);
+                ex.printStackTrace();
+            }
+        } else {
+            Error errPanel = new Error(errMessage);
+        }
+    }
+
+    public void setPassword(String username, char[] oldPassword, char[] newPassword, char[] cnfPassword) {
+        //Convert the passwords to strings
+        String strOldPassword = new String(oldPassword);
+        String strNewPassword = new String(newPassword);
+        String strCnfPassword = new String(cnfPassword);
+        
+        String errMessage = "";
+        //Check for mistakes
+        if (username.equals("")) {
+            //Error - no username
+            errMessage = "The Email address is required";
+        } else {
+            //be sure it has the form of a real email address
+        }
+        if (strOldPassword.equals("")) {
+            //Error - no password
+            errMessage = "The old password is required";
+        }
+        if (strNewPassword.equals("")) {
+            //Error - no password
+            errMessage = "A new password is required";
+        } else {
+            if (!strNewPassword.equals(strCnfPassword)) {
+                //be sure passwords match
+                errMessage = "The new password must match";
+            }
+        }
+
+        if (errMessage.equals("")) {
+            Database db = new Database();
+            db.connectRW();
+
+            String qryStr = "update inoutadmintest.members set password = '" + strNewPassword + "' where username = '" + username + "' and password = '" + strOldPassword + "';";
+
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.execute(qryStr);
+                conn.close();
+                Success successPanel = new Success("The password was changed");
+                /*Need more information on the smtp server to get this to work
+                Properties props = System.getProperties();
+                props.put("mail.smtps.host","relay-hosting.secureserver.net");
+                props.put("mail.smtps.auth","true");
+                Session session = Session.getInstance(props, null);
+                Message msg = new MimeMessage(session);
+                msg.setFrom(new InternetAddress("bob@bobrhett.com"));
+                msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("support@cloudinout.com", false));
+                msg.setSubject("Password Reset");
+                msg.setText("This message is confirmation that your password has been changed.");
+                msg.setHeader("X-Mailer", "bob@bobrhett.com");
+                msg.setSentDate(new Date());
+                SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
+                t.connect("relay-hosting.secureserver.net", "bob@bobrhett.com", "Blanket38");
+                t.sendMessage(msg, msg.getAllRecipients());
+                System.out.println("Response: " + t.getLastServerResponse());
+                t.close();*/
+            } catch(SQLException ex) {
+                //handle an existing account here
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("qryStr: " + qryStr);
+                ex.printStackTrace();
+            }
+        } else {
+            Error errPanel = new Error(errMessage);
+        }
+    }
+
+    public void getPassword(String username) {
+        String errMessage = "";
+        //Check for mistakes
+        if (username.equals("")) {
+            //Error - no username
+            errMessage = "The Email address is required";
+        } else {
+            //be sure it has the form of a real email address
+        }
+
+        if (errMessage.equals("")) {
+            Database db = new Database();
+            db.connectRO();
+
+            String qryStr = "select password, email from inoutadmintest.members where username = '" + username + "';";
+
+            try {
+                Statement stmt = conn.createStatement();
+                rset = stmt.executeQuery(qryStr);
+                if (rset.next()) {
+                    Success successPanel = new Success("Your password is " + rset.getString("password"));
+                }
+                conn.close();
+                /*Need more information on the smtp server to get this to work
+                Properties props = System.getProperties();
+                props.put("mail.smtps.host","relay-hosting.secureserver.net");
+                props.put("mail.smtps.auth","true");
+                Session session = Session.getInstance(props, null);
+                Message msg = new MimeMessage(session);
+                msg.setFrom(new InternetAddress("bob@bobrhett.com"));
+                msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("support@cloudinout.com", false));
+                msg.setSubject("Password Reset");
+                msg.setText("This message is confirmation that your password has been changed.");
+                msg.setHeader("X-Mailer", "bob@bobrhett.com");
+                msg.setSentDate(new Date());
+                SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
+                t.connect("relay-hosting.secureserver.net", "bob@bobrhett.com", "Blanket38");
+                t.sendMessage(msg, msg.getAllRecipients());
+                System.out.println("Response: " + t.getLastServerResponse());
+                t.close();*/
             } catch(SQLException ex) {
                 //handle an existing account here
                 System.out.println("SQLException: " + ex.getMessage());

@@ -23,10 +23,10 @@ public class User {
     
     //Constructor
     public User(String mUsername, char[] mPassword) {
-        Username = mUsername;
+        String qryStr = "select * from inoutadmintest.members where username = '" + mUsername + "';";
         try {
             Statement stmt = conn.createStatement();
-            rset = stmt.executeQuery("select * from inoutadmintest.members where username = '" + Username + "';");
+            rset = stmt.executeQuery(qryStr);
             if (rset.next()) {
                 String password = new String(mPassword);
                 if (rset.getString("password").equals(password)) {
@@ -38,6 +38,7 @@ public class User {
             }
             } catch(SQLException ex) {
                 System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("qryStr: " + qryStr);
                 ex.printStackTrace();
             }
     }
