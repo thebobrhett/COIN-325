@@ -8,6 +8,7 @@ package lab16;
 /**
  *
  * @author Bob
+ * @param <T>
  */
 public class LinkedStack<T> implements Stack<T> {
     private int count;

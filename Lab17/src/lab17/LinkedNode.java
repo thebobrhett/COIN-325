@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab16;
+package lab17;
 
 /**
  *
  * @author Bob
- * @param <T>
  */
 public class LinkedNode<T> {
     private T mElement;

@@ -8,6 +8,7 @@ package lab16;
 /**
  *
  * @author Bob
+ * @param <T>
  */
 public interface Stack<T> {
     //method to add element to top of stack
