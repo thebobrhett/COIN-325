@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Login_Mobile</string>
+    <string name="add_name">Create Account</string>
+    <string name="get_name">Get Password</string>
+    <string name="set_name">Set Password</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="LoginAction">LoginAction()</string>
+    <string name="EmailLabel">Email</string>
+    <string name="PasswordLabel">Password</string>
+
+    <string name="setPassword">I want to change my password...</string>
+    <string name="getPassword">I forgot my password...</string>
+    <string name="addAccount">Create a new account...</string>
+
+    <string name="OldPasswordLabel">Old Password</string>
+    <string name="ConPasswordLabel">Confirm Password</string>
+
+    <string name="setPasswordButton">Change password</string>
+    <string name="getPasswordButton">Get password</string>
+
+    <string name="fnameLabel">First name</string>"
+    <string name="lnameLabel">Last name</string>"
+    <string name="addAccountButton">Create account</string>"
+
+    <string name="CancelButton">Cancel</string>
+    <string name="title_activity_sample">Sample</string>
+    <string name="title_activity_setpassword">setpassword</string>
+    <string name="title_activity_getpassword">getpassword</string>
+    <string name="title_activity_addaccount">addaccount</string>"
+
+</resources>
